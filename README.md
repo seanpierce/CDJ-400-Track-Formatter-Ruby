@@ -23,7 +23,7 @@ Navigate into the directory containing your files and run the script
 
 ```shell
 cd ~/path/to/tracks
-ruby ~/path/to/CDJ-400-Track-Formatter
+ruby ~/path/to/CDJ-400-Track-Formatter/app.rb
 ```
 
 \* Note: this script will rename and move your files permanently. It's best to copy your original files into another directory before running this script. Exercise caution.
