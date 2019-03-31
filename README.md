@@ -30,5 +30,7 @@ ruby ~/path/to/CDJ-400-Track-Formatter/app.rb
 
 \* Note: this script will rename and move your files permanently. It's best to copy your original files into another directory before running this script. Exercise caution.
 
+[Please visit the wiki](https://github.com/seanpierce/CDJ-400-Track-Formatter/wiki) for a more detailed outline of the funcitonalities of this script, including future features.
+
 ## License
 MIT, use at your own risk
