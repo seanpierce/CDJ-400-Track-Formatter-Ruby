@@ -1,4 +1,4 @@
-require "id3tag"
+require 'id3tag'
 require 'fileutils'
 
 require_relative 'track'
