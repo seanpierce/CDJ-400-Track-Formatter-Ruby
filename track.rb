@@ -7,10 +7,10 @@ class Track
 		if !@tag.artist
 			return "Unknown Artist"
 		else
-			if @tag.artist.include? "/" 
-				return @tag.artist.gsub("/", "_") 
-			else 
-				return @tag.artist 
+			if @tag.artist.include? "/"
+				return @tag.artist.gsub("/", "_")
+			else
+				return @tag.artist
 			end
 		end
 	end
@@ -31,11 +31,19 @@ class Track
 		if !@tag.title
 			return "Unknown Title"
 		else
-			if @tag.title.include? "/" 
-				return @tag.title.gsub("/", "_") 
-			else 
-				return @tag.title 
+			if @tag.title.include? "/"
+				return @tag.title.gsub("/", "_")
+			else
+				return @tag.title
 			end
 		end
+	end
+
+	def directory
+		return "Artists/#{self.artist}/#{self.album}"
+	end
+
+	def full_path
+		return "#{self.directory}/#{self.title}.mp3"
 	end
 end
