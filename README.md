@@ -1,5 +1,7 @@
 # CDJ 400 Track Formatter
 
+![alt text](cdj-400.png)
+
 This project contains a ruby script used to format a collection of songs, makig it easier to traverse the collection when loaded onto a Pioneer CDJ 400. This repository is a work-in-progress.
 
 ## The Problem
