@@ -15,6 +15,18 @@ class Track
 		end
 	end
 
+	def album
+		if !@tag.album
+			return "Unknown Album"
+		else
+			if @tag.album.include? "/"
+				return @tag.album.gsub("/", "_")
+			else
+				return @tag.album
+			end
+		end
+	end
+			
 	def title
 		if !@tag.title
 			return "Unknown Title"
