@@ -31,12 +31,12 @@ def get_bpm(filename):
             break
 
     if len(beats) > 1:
-        from numpy import mean, diff
+        from numpy import mean, diff, median
         bpms = 60. / diff(beats)
-        bpm = mean(bpms)
+        bpm = (mean(bpms) + median(bpms)) / 2
 
         with open('bpms.txt', 'a') as bpm_file:
-            bpm_file.write(filename + '||%.2f\n' % (bpm))
+            bpm_file.write(filename + '||' + str(bpm) + '\n')
 
         print(filename + ': %.2f' % (bpm))
         print('===========')
