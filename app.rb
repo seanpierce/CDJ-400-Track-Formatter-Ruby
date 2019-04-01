@@ -10,9 +10,9 @@ puts "[3] Sort by BPM"
 process = gets
 
 if process.to_i == 1
-	get_bpms()
+	collect_bpms()
 elsif process.to_i == 2
-	sort_by_artist()
+	sort_by_artist(saved_bpms)
 else 
 	sort_by_bpm()
 end
