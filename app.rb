@@ -1,21 +1,19 @@
 require 'id3tag'
 require 'fileutils'
 
-require_relative 'track'
+require_relative 'functions'
 
-mp3s = Dir.entries("./").select { |filename| filename =~ /\.mp3/i }
+puts "======"
+puts "[1] Collect BPM for all trackos"
+puts "[2] Sort by Artist"
+puts "[3] Sort by BPM"
+process = gets
 
-mp3s.each do |file|
-
-	begin
-		ID3Tag.read(File.open(file, "rb")) do |tag|
-			track = Track.new(tag)
-			FileUtils.mkdir_p track.directory
-			FileUtils.mv(file, track.full_path)
-		end
-	rescue StandardError => e
-		puts "An error occurred: #{e.message}"
-	ensure
-		next
-	end
+if process.to_i == 1
+	get_bpms()
+elsif process.to_i == 2
+	sort_by_artist()
+else 
+	sort_by_bpm()
 end
+
