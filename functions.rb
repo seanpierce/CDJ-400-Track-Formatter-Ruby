@@ -13,13 +13,13 @@ def collect_bpms
 	exit
 end
 
-def sort_by_artist
+def sort_by_artist(bpms)
 	puts "Sorting collection by Artist..."
 	mp3s = Dir.entries("./").select { |filename| filename =~ /\.mp3/i }
 	mp3s.each do |file|
 		begin
 			ID3Tag.read(File.open(file, "rb")) do |tag|
-				track = Track.new(tag)
+				track = Track.new(file, tag, bpms)
 				FileUtils.mkdir_p track.directory
 				FileUtils.mv(file, track.full_path)
 			end
