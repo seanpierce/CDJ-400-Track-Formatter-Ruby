@@ -7,11 +7,7 @@ class Track
 		if !@tag.artist
 			return "Unknown Artist"
 		else
-			if @tag.artist.include? "/"
-				return @tag.artist.gsub("/", "_")
-			else
-				return @tag.artist
-			end
+			return self.clean(@tag.artist)
 		end
 	end
 
@@ -19,11 +15,7 @@ class Track
 		if !@tag.album
 			return "Unknown Album"
 		else
-			if @tag.album.include? "/"
-				return @tag.album.gsub("/", "_")
-			else
-				return @tag.album
-			end
+			return self.clean(@tag.album)
 		end
 	end
 			
@@ -31,11 +23,7 @@ class Track
 		if !@tag.title
 			return "Unknown Title [#{self.bpm}]"
 		else
-			if @tag.title.include? "/"
-				return "#{@tag.title.gsub("/", "_")} [#{self.bpm}]"
-			else
-				return "#{@tag.title} [#{self.bpm}]"
-			end
+			return "#{self.clean(@tag.title)} [#{self.bpm}]"
 		end
 	end
 
@@ -64,5 +52,9 @@ class Track
 				return 0
 			end
 		end
+	end
+	
+	def clean(text)
+		return text.gsub!(/[^0-9A-Za-z. \-]/, '_')
 	end
 end
