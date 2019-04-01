@@ -1,6 +1,8 @@
 class Track
-	def initialize(tag)
+	def initialize(file, tag, bpms)
+		@file = file
 		@tag = tag
+		@bpms = bpms
 	end
 
 	def artist
