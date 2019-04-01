@@ -38,21 +38,15 @@ class Track
 	end
 
 	def bpm
-		if (@tag.get_frame(:TBPM))
-			# if file already has BPM tag
-			return @tag.get_frame(:TBPM).content
-		else
-			# get bpm frm generated bpms
-			bpms = File.readlines('bpms.txt')
-			matches = bpms.select { |name| name[/#{self.title}/i] }
-			first_match = matches[0]
+		# get bpm from generated bpms supplied in initialize
+		matches = @bpms.select { |line| line[/#{@file}/i] }
+		first_match = matches[0]
 
-			if (first_match)
-				first_match_array = first_match.split('||')
-				return first_match_array[1]
-			else 
-				return 0
-			end
+		if (first_match)
+			first_match_array = first_match.split('||')
+			return first_match_array[1]
+		else 
+			return 0
 		end
 	end
 	
