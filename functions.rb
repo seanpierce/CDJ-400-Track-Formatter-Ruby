@@ -3,7 +3,9 @@ require 'fileutils'
 
 require_relative 'track'
 
-def get_bpms
+saved_bpms = File.readlines('bpms.txt')
+
+def collect_bpms
 	puts "Collecting BPMs..."
 	puts "(This might take awhile)"
 	dir = __dir__
