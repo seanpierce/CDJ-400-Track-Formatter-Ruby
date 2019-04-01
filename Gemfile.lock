@@ -1,12 +1,16 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aubio (0.3.1)
+      ffi (~> 1.9)
+    ffi (1.10.0)
     id3tag (0.12.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  aubio
   id3tag
 
 RUBY VERSION
