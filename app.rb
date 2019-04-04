@@ -11,7 +11,7 @@ mp3s.each do |file|
 		ID3Tag.read(File.open(file, "rb")) do |tag|
 			track = Track.new(tag)
 			FileUtils.mkdir_p track.directory
-			FileUtils.mv(file, track.full_path)
+			FileUtils.mv file, track.full_path
 		end
 	rescue StandardError => e
 		puts "An error occurred: #{e.message}"
