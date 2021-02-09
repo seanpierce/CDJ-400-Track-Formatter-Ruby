@@ -12,6 +12,8 @@ Pioneer CDJ 400s organize and display tracks by their full filename, based on th
 
 Create a formatting script that will organize each file within a directory which adheres to the format of `artist/album/title.mp3`(example: "Throbbing Gristle/20 Jazz Funk Greats/Beachy Head.mp3") which would allow me to search tracks by artists alphabetically, then drill down into the songs available for that artist.
 
+*No rekordbox, no problem*
+
 ## Usage
 
 Download this project and collect it's dependencies
