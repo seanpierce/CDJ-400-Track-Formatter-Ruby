@@ -18,4 +18,17 @@ mp3s.each do |file|
 	ensure
 		next
 	end
+
+	FileUtils.mkdir_p 'bpm'
+
+	begin
+		ID3Tag.read(File.open(file, "rb")) do |tag|
+			track = Track.new(tag)
+			FileUtils.mv file, track.full_bpm_path
+		end
+	rescue StandardError => e
+		puts "An error occurred finding bpm: #{e.message}"
+	ensure
+		next
+	end
 end

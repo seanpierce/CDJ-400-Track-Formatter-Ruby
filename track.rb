@@ -5,7 +5,7 @@ class Track
 
 	def artist
 		if !@tag.artist
-			return "Unknown Artist"
+			return "Unknown"
 		else
 			if @tag.artist.include? "/"
 				return @tag.artist.gsub("/", "_")
@@ -17,7 +17,7 @@ class Track
 
 	def album
 		if !@tag.album
-			return "Unknown Album"
+			return "Unknown"
 		else
 			if @tag.album.include? "/"
 				return @tag.album.gsub("/", "_")
@@ -29,7 +29,7 @@ class Track
 			
 	def title
 		if !@tag.title
-			return "Unknown Title"
+			return "Unknown"
 		else
 			if @tag.title.include? "/"
 				return @tag.title.gsub("/", "_")
@@ -37,6 +37,18 @@ class Track
 				return @tag.title
 			end
 		end
+	end
+
+	def bpm
+		if !@tag.bpm
+			return 0
+		else
+			return @tag.bpm
+		end
+	end
+
+	def full_bpm_path
+		return "#{self.bpm}_#{self.artist}-#{self.title}.mp3"
 	end
 
 	def directory
